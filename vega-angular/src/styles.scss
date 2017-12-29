@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+ /* Forces all the elements to inherit the box-sizing property */
+  box-sizing: inherit;
+}
+
+html {
+  /* Defines what 1rem is:
+    16 px = 10 / 16px = 0.625 
+  */
+  font-size: 62.5%; // 1rem = 10px;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #aaa;
+  text-align: left;
+  background-color: #272B30;
+  box-sizing: border-box;
+}

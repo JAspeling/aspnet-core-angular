@@ -7,7 +7,7 @@ using vega_standalone.Models;
 using vega_standalone.Persistance;
 
 namespace vega_standalone.Controllers {
-    [Route("/api/[controller]")]
+    [Route("api/[controller]")]
     public class FeaturesController : Controller {
         private readonly VegaDbContext context;
 
@@ -15,6 +15,7 @@ namespace vega_standalone.Controllers {
             this.context = context;
         }
 
+        [HttpGet("/api/features")]
         public IEnumerable<Feature> GetFeatures() {
             var features = context.Features;
             return features;
