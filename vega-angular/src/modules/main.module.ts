@@ -11,8 +11,6 @@ import { RoutingModule } from './routing.module';
     AppComponent
   ],
   imports: [
-    FormsModule,
-    BrowserModule,
     ComponentsModule,
     RoutingModule
   ],

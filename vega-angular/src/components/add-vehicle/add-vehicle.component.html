@@ -7,18 +7,18 @@
         </h1>
       </div>
     </div>
-    <form class="add-vehicle__content--form">
+    <form class="add-vehicle__content--form" (ngSubmit)="onSubmit(vehicleForm, $event)" #vehicleForm="ngForm">
       <div class="row">
         <div class="col-md-6">
           <div class="form-group">
             <label for="make">Make</label>
-            <input id="make" type="text" class="form-control">
+            <input id="make" type="text" class="form-control" ngModel name="make">
           </div>
         </div>
         <div class="col-md-6">
           <div class="form-group">
             <label for="model">Model</label>
-            <input id="model" type="text" class="form-control">
+            <input id="model" type="text" class="form-control" ngModel name="model">
           </div>
         </div>
       </div>
@@ -27,28 +27,20 @@
           <label>Is the Vehicle Registered?</label>
           <div class="radio">
             <label>
-              <input type="radio" name="optradio">Yes</label>
+              <input type="radio" name="radio" id="radioYes">Yes</label>
           </div>
           <div class="radio">
             <label>
-              <input type="radio" name="optradio">No</label>
+              <input type="radio" name="radio" id="radioNo">No</label>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-xs-12">
           <label>Features</label>
-          <div class="checkbox">
+          <div class="checkbox" *ngFor="let feature of features">
             <label>
-              <input type="checkbox" value="">Feature 1</label>
-          </div>
-          <div class="checkbox">
-            <label>
-              <input type="checkbox" value="">Feature 2</label>
-          </div>
-          <div class="checkbox">
-            <label>
-              <input type="checkbox" value="">Feature 3</label>
+              <input type="checkbox" value="">{{feature}}</label>
           </div>
         </div>
       </div>
@@ -56,23 +48,24 @@
         <div class="col-md-6">
           <div class="form-group">
             <label for="contactName">Contact Name</label>
-            <input id="contactName" type="text" class="form-control">
+            <input id="contactName" type="text" class="form-control" ngModel name="contactName">
           </div>
         </div>
         <div class="col-md-6">
           <div class="form-group">
             <label for="contactPhone">Contact Phone</label>
-            <input id="contactPhone" type="text" class="form-control">
+            <input id="contactPhone" type="text" class="form-control" ngModel name="contactPhone">
           </div>
         </div>
 
         <div class="col-md-6">
           <div class="form-group">
             <label for="contactEmail">Contact Email</label>
-            <input id="contactEmail" type="email" class="form-control">
+            <input id="contactEmail" type="email" class="form-control" ngModel name="contactEmail">
           </div>
         </div>
       </div>
+      <button class="btn btn-primary pull-right u-margin-top-small" type="submit">Add Vehicle </button>
     </form>
   </div>
 </div>

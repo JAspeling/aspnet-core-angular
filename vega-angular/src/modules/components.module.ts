@@ -6,10 +6,13 @@ import {
   HomeComponent,
   AddVehicleComponent
 } from '../components';
+import { FormsModule } from '@angular/forms';
+import { VehicleService } from '../services/vehicle.service';
 
 @NgModule({
+  imports: [FormsModule, BrowserModule],
   declarations: [ErrorComponent, HomeComponent, AddVehicleComponent],
-  providers: [],
+  providers: [VehicleService],
   exports: [],
   bootstrap: []
 })
