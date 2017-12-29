@@ -1,0 +1,75 @@
+// Utility classes are responsible for very specific actions.
+// For instance the u-center-text class is only responsible
+//  for centering all its child element's text attributes.
+
+/* #region MARGINS */
+
+/* #region BOTTOM-MARGIN */
+
+.u-margin-bottom-big {
+  margin-bottom: 8rem !important;
+  @include respond(tab-port) {
+    margin-bottom: 5rem !important;
+  }
+}
+.u-margin-bottom-medium {
+  margin-bottom: 4rem !important;
+  @include respond(tab-port) {
+    margin-bottom: 3rem !important;
+  }
+}
+.u-margin-bottom-small {
+  margin-bottom: 1.5rem !important;
+}
+
+/*#endregion Bottom */
+
+/* #region TOP-MARGIN */
+
+.u-margin-top-huge {
+  margin-top: 10rem !important;
+  @include respond(tab-port) {
+    margin-top: 8rem !important;
+  }
+}
+.u-margin-top-big {
+  margin-top: 8rem !important;
+  @include respond(tab-port) {
+    margin-top: 6rem !important;
+  }
+}
+.u-margin-top-medium {
+  margin-top: 4rem !important;
+  @include respond(tab-port) {
+    margin-top: 3rem !important;
+  }
+}
+.u-margin-top-small {
+  margin-top: 1.5rem !important;
+}
+
+/* #endregion TOP-MARGIN */
+
+/*#endregion MARGINS */
+
+
+.u-center-text {
+  text-align: center !important;
+}
+
+.u-full-height {
+  height: 100% !important;
+}
+
+.u-padding-sides-small {
+  margin-left: 1.5rem !important;
+  margin-right: 1.5rem !important;
+}
+
+.u-padding-bottom-small {
+  padding-bottom: 1.5rem !important;
+}
+
+.u-border-bottom {
+  border-bottom: 1px solid $color-grey-light-2;
+}

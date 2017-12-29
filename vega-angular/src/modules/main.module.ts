@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { ComponentsModule } from './components.module';
 import { AppComponent } from '../app/app.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -10,6 +11,7 @@ import { RoutingModule } from './routing.module';
     AppComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     ComponentsModule,
     RoutingModule

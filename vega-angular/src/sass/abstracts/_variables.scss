@@ -1,0 +1,48 @@
+// COLORS
+$color-primary: #7ed56f;
+$color-primary-light: #62df8a;
+$color-primary-dark: #28b485;
+
+$color-secondary-light: #ffb900;
+$color-secondary-dark: #ff7730;
+
+$color-tertiary-light: #2998ff;
+$color-tertiary-dark: #5643fa;
+
+$color-grey-light-1: #f7f7f7;
+$color-grey-light-2: #eee;
+$color-grey-light-3: rgb(184, 184, 184);
+
+$color-grey-dark: #777;
+$color-grey-dark-2: #999;
+$color-grey-dark-3: #333;
+
+$color-white: #fff;  
+$color-black: #000;
+
+// GRID
+$grid-width: 114rem;      // 1140px;
+$gutter-vertical: 8rem;
+$gutter-vertical-small: 6rem;
+$gutter-horizontal: 6rem;
+$gutter-horizontal-small: 4rem;
+
+// FONT
+$default-font-size: 1.6rem;
+
+// SHADOW
+// X, Y, Blur, Color
+$default-box-shadow-hover: 0 1rem 2rem rgba($color-black, 0.2);
+$default-box-shadow-click: 0 0.5rem 2rem rgba($color-black, 0.2);
+$default-box-shadow: 0 1.5rem 4rem rgba($color-black, 0.2);
+$default-box-shadow-small: 0 1.5rem 2rem rgba($color-black, 0.1);
+// Radius
+
+$radius-x-small: .3rem;
+$radius-small: 1rem;
+$radius-medium: 4rem;
+$radius-large: 10rem;
+
+// Click animations
+$click-over: .3rem;
+$click-down: .1rem;

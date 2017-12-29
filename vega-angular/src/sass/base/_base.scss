@@ -1,0 +1,29 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+ /* Forces all the elements to inherit the box-sizing property */
+  box-sizing: inherit;
+}
+
+html {
+  /* Defines what 1rem is:
+    16 px = 10 / 16px = 0.625 
+  */
+  font-size: 62.5%; // 1rem = 10px;
+}
+
+body {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100% !important;
+}
+
+@include scrollbars(.8, 
+                  #999, 
+                  mix(#999, white,  50%), 
+                  false,
+                  false);

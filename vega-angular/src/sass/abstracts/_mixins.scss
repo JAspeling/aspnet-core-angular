@@ -1,0 +1,150 @@
+@mixin clearfix {
+  &::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+}
+
+@mixin absCenter($left: 50%, $top: 50%, $x: -50%, $y: -50%) {
+  left: $left;
+  top: $top;
+
+  transform: translate($x, $y);
+}
+
+/*#region Media Query Manager */
+
+// MEDIA QUERY MANAGER
+/*
+
+Desktop-first approach 
+
+0 - 600px:    Phone
+600 - 900px:  Tablet Portrait
+900 - 1200px: Tablet Landscape
+[1200 - 1800] is where our normal styles apply
+1800px +:     Big Desktop
+
+1em = 16px;
+
+ORDER: Base + typography -> General Layout + grid -> page layout -> components
+
+*/
+
+/// Mixin to handle Media Queries
+/// @param {Breakpoint} $breakpoint - Width breakpoint to handle the responsiveness (phone, tab-port, tab-land, big-desktop)
+/// @example scss - Scrollbar styling
+///  @include respond(phone) { scss code... }
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media (max-width: 37.5em) { @content; }    // 600px / 16px
+  }
+
+  @if $breakpoint == tab-port {
+    @media (max-width: 56.25em) { @content; }   // 900px / 16px
+  }
+
+  @if $breakpoint == tab-land {
+    @media (max-width: 75em) { @content; }      // 1200px / 16px
+  }
+
+  @if $breakpoint == big-desktop {
+    @media (min-width: 112.5em) { @content; }   //1800px / 16px
+  }
+}
+
+/*#endregion Media Query Manager */
+
+/*#region Scrollbars*/
+/// Mixin to customize scrollbars
+/// Beware, this does not work in all browsers
+/// @author Hugo Giraudel
+/// @param {Length} $size - Horizontal scrollbar's height and vertical scrollbar's width
+/// @param {Color} $foreground-color - Scrollbar's color
+/// @param {Color} $background-color [mix($foreground-color, white, 50%)] - Scrollbar's color
+/// @example scss - Scrollbar styling
+///   @include scrollbars(.5em, slategray);
+@mixin scrollbars($size,
+                  $foreground-color,  
+                  $background-color: mix($foreground-color, white,  50%),
+                  $showScrollButtons: false,
+                  $positionScrollButtonsBelow: false
+                  ) {
+  // For Google Chrome
+  ::-webkit-scrollbar {
+    width: #{$size}rem;
+    height: #{$size}rem;
+  }
+  ::-webkit-scrollbar-thumb {
+    transition: all 0.3s;
+    background: $foreground-color;
+    border-radius: 5px;
+    &:hover {
+      background-color: darken($foreground-color, 10%);
+    }
+  }
+  ::-webkit-scrollbar-track {
+    position: absolute;
+    top: -10px;
+    background: $background-color;
+  }
+
+  @if $showScrollButtons == true {
+    ::-webkit-scrollbar-button {
+      background-color: darken($foreground-color, 10%);
+
+      &:hover {
+        background-color: darken($foreground-color, 25%);
+      }
+
+      &:vertical {
+        height: 1rem;
+        &:decrement {
+          border-radius: 0 0 0.3rem 0.3rem;
+        }
+
+        &:increment {
+          border-radius: 0.3rem 0.3rem 0 0;
+        }
+
+        @if $positionScrollButtonsBelow == true {
+          ::-webkit-scrollbar-button:end {
+            display: block;
+          }
+
+          ::-webkit-scrollbar-button:start {
+            display: none;
+          }
+        }
+      }
+      &:horizontal {
+        width: 1rem;
+        &:decrement {
+          border-radius: 0 0.3rem 0.3rem 0;
+        }
+
+        &:increment {
+          border-radius: 0.3rem 0 0 0.3rem;
+        }
+
+        @if $positionScrollButtonsBelow == true {
+          ::-webkit-scrollbar-button:end {
+            display: block;
+          }
+
+          ::-webkit-scrollbar-button:start {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  // For Internet Explorer
+  .panel-body {
+    scrollbar-face-color: $foreground-color;
+    scrollbar-track-color: $background-color;
+  }
+}
+/*#endregion*/

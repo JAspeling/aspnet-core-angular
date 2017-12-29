@@ -1,0 +1,20 @@
+@import './../../sass/abstracts/variables';
+@import './../../sass/abstracts/mixins';
+
+.home {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background-color: $color-grey-light-1;
+  border: 1px solid $color-grey-light-3;
+  border-radius:  $radius-x-small;
+  box-shadow: $default-box-shadow-small;
+
+  &__content {
+    padding: 0 3rem;
+    &__header {
+      text-align: center;
+    }
+  }
+  
+}

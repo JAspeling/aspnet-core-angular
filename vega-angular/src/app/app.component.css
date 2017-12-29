@@ -1,0 +1,7 @@
+.main-container {
+  height: 100%;
+}
+
+.full-height {
+  height: calc(100% - 7.2rem);
+}

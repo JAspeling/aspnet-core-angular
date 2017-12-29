@@ -1,0 +1,27 @@
+@import './../../sass/abstracts/variables';
+@import './../../sass/abstracts/mixins';
+
+.add-vehicle {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+  background-color: $color-grey-light-1;
+  border: 1px solid $color-grey-light-3;
+  border-radius:  $radius-x-small;
+  box-shadow: $default-box-shadow-small;
+
+  &__content {
+    padding: 0 3rem;
+    &--header {
+      text-align: left;
+    }
+    &--form .row:not(:last-child) {
+      border-bottom: 1px solid $color-grey-light-2;
+    }
+
+    &--form .row:not(:first-child) {
+      margin-top: 1em;
+    }
+  }  
+}
