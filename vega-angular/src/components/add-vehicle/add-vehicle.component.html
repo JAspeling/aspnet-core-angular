@@ -8,17 +8,26 @@
       </div>
     </div>
     <form class="add-vehicle__content--form" (ngSubmit)="onSubmit(vehicleForm, $event)" #vehicleForm="ngForm">
-      <div class="row">
+      <div class="row u-relative">
+        <ngx-loading [show]="loadingMakes" [config]="loadingOptions"></ngx-loading>
         <div class="col-md-6">
           <div class="form-group">
             <label for="make">Make</label>
-            <input id="make" type="text" class="form-control" ngModel name="make">
+            <select class="form-control" name="make" ngModel required [(ngModel)]="selectedMakeId" (change)="onMakeChange($event.target.value)"
+              placeholder="Please Select a Mkae">
+              <option *ngFor="let make of makes" [value]="make.id">{{make.name}}</option>
+            </select>
+            <!-- <input id="make" type="text" class="form-control" ngModel required name="make"> -->
           </div>
         </div>
         <div class="col-md-6">
           <div class="form-group">
             <label for="model">Model</label>
-            <input id="model" type="text" class="form-control" ngModel name="model">
+            <select class="form-control" name="model" ngModel required [(ngModel)]="selectedModelId" (change)="onModelChange($event.target.value)"
+              placeholder="Please Select a Model">
+              <option *ngFor="let model of models" [value]="model.id">{{model.name}}</option>
+            </select>
+            <!-- <input id="model" type="text" class="form-control" ngModel required name="model"> -->
           </div>
         </div>
       </div>
@@ -27,20 +36,33 @@
           <label>Is the Vehicle Registered?</label>
           <div class="radio">
             <label>
-              <input type="radio" name="radio" id="radioYes">Yes</label>
+              <input type="radio" name="vehicleRegistered" ngModel [value]="'Yes'">Yes</label>
           </div>
           <div class="radio">
             <label>
-              <input type="radio" name="radio" id="radioNo">No</label>
+              <input type="radio" name="vehicleRegistered" ngModel [value]="'No'">No</label>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-xs-12">
+          <ngx-loading [show]="loadingFeatures" [config]="loadingOptions"></ngx-loading>
+          <!-- Something to look at, creating custom placeholders -->
+          <!-- <div class="timeline-wrapper">
+            <div class="timeline-item">
+              <div class="animated-background">
+                <div class="background-masker checkbox-divider"></div>
+                <div class="background-masker line-1"></div>
+                <div class="background-masker line-2"></div>
+                <div class="background-masker line-3"></div>
+                <div class="background-masker line-4"></div>
+              </div>
+            </div>
+          </div> -->
           <label>Features</label>
           <div class="checkbox" *ngFor="let feature of features">
-            <label>
-              <input type="checkbox" value="">{{feature}}</label>
+            <label [for]="feature.id">
+              <input type="checkbox" [id]="feature.id">{{feature.name}}</label>
           </div>
         </div>
       </div>
@@ -48,20 +70,20 @@
         <div class="col-md-6">
           <div class="form-group">
             <label for="contactName">Contact Name</label>
-            <input id="contactName" type="text" class="form-control" ngModel name="contactName">
+            <input id="contactName" type="text" class="form-control" ngModel required name="contactName">
           </div>
         </div>
         <div class="col-md-6">
           <div class="form-group">
             <label for="contactPhone">Contact Phone</label>
-            <input id="contactPhone" type="text" class="form-control" ngModel name="contactPhone">
+            <input id="contactPhone" type="text" class="form-control" ngModel required name="contactPhone">
           </div>
         </div>
 
         <div class="col-md-6">
           <div class="form-group">
             <label for="contactEmail">Contact Email</label>
-            <input id="contactEmail" type="email" class="form-control" ngModel name="contactEmail">
+            <input id="contactEmail" type="email" class="form-control" ngModel email name="contactEmail">
           </div>
         </div>
       </div>

@@ -8,7 +8,7 @@
   overflow-y: auto;
   background-color: $color-grey-light-1;
   border: 1px solid $color-grey-light-3;
-  border-radius:  $radius-x-small;
+  border-radius: $radius-x-small;
   box-shadow: $default-box-shadow-small;
 
   &__content {
@@ -18,10 +18,102 @@
     }
     &--form .row:not(:last-child) {
       border-bottom: 1px solid $color-grey-light-2;
+      transition: all 0.3s;
+      input.ng-invalid.ng-touched,
+      select.ng-invalid.ng-touched {
+        border: 1px solid red;
+      }
     }
 
-    &--form .row:not(:first-child) {
-      margin-top: 1em;
+    &--form {
+      .timeline-wrapper {
+        min-height: 5rem;
+      }
+      .timeline-item {
+        // background: #fff;
+        background: transparent;
+        // border: 1px solid;
+        // border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+        // border-radius: 3px;
+        padding: 12px;
+
+        margin: 0 auto;
+        min-height: 2rem;
+        max-width: 472px;
+      }
+
+      @keyframes placeHolderShimmer {
+        0% {
+          background-position: -468px 0;
+        }
+        100% {
+          background-position: 430px 0;
+        }
+      }
+
+      .background-masker {
+        background: #fff;
+        position: absolute;
+        /* Every thing below this is just positioning */
+
+        &.checkbox-divider {
+          top: 0;
+          bottom: 0;
+          left: 15px;
+          width: 10px;
+        }
+
+        &.line {
+          &-1 {
+            top: 10px;
+            right: 0;
+            left: 0;
+            height: 10px;
+          }
+          &-2 {
+            top: 30px;
+            right: 0;
+            left: 0;
+            height: 10px;
+          }
+          &-3 {
+            top: 50px;
+            right: 0;
+            left: 0;
+            height: 10px;
+          }
+          &-4 {
+            top: 70px;
+            right: 0;
+            left: 0;
+            height: 10px;
+          }
+        }
+      }
+
+      .animated-background {
+        animation-duration: 3s;
+        animation-fill-mode: forwards;
+        animation-iteration-count: infinite;
+        animation-name: placeHolderShimmer;
+        animation-timing-function: linear;
+        // background: #f6f7f8;
+        background: transparent;
+        // background: linear-gradient(
+        //   to right,
+        //   #eeeeee 8%,
+        //   #dddddd 18%,
+        //   #eeeeee 33%
+        // );
+        background: linear-gradient(to right, #eeeeee00 8%, #dddddd 18%, #eeeeee00 33%);
+        // background: linear-gradient(to right, #8b1a1a 8%, #dddddd 18%, #9b1818 33%);
+        background-size: 100% 100%;
+        height: 10rem;
+        position: relative;
+      }
+      &.row:not(:first-child) {
+        margin-top: 1em;
+      }
     }
-  }  
+  }
 }

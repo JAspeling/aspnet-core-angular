@@ -6,7 +6,7 @@ import { AppComponent } from '../app/app.component';
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'add-vehicle', component: AddVehicleComponent},
+  { path: 'vehicles/new', component: AddVehicleComponent},
   { path: 'not-found', component: ErrorComponent },
   { path: '**', redirectTo: '/not-found' }
 ];
