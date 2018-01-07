@@ -21,7 +21,7 @@ namespace vega_standalone.Controllers {
         }
         
 
-        [HttpGet("/api/makes")]
+        [HttpGet]
         public  IEnumerable<MakeResource> GetMakes() {
             var makes = context.Makes.Include(m => m.Models).ToList(); 
             return mapper.Map<List<Make>, List<MakeResource>>(makes);

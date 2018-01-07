@@ -24,6 +24,7 @@ namespace vega_standalone {
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services) {
 
+            // Allows you to use the Mapper object to map objects to another object.
             services.AddAutoMapper();
 
             services.AddCors((options) => {

@@ -6,13 +6,19 @@ using System.Threading.Tasks;
 using vega_standalone.Models;
 
 namespace vega_standalone.Persistance {
-    public class VegaDbContext  : DbContext {
-        // System.Configuration.ConfigurationManager
+    public class VegaDbContext : DbContext {
+        public DbSet<Make> Makes { get; set; }
+        public DbSet<Feature> Features { get; set; }
+
+        // System.Configuration.ConfigurationManager - Used to connect to the Database
         public VegaDbContext(DbContextOptions<VegaDbContext> options) : base(options) {
 
         }
 
-        public DbSet<Make> Makes { get; set; }
-        public DbSet<Feature> Features { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder) {
+            // Key for this entity (VehicleFeature) has these two properties (VehicleId & FeatureId)
+            modelBuilder.Entity<VehicleFeature>().HasKey(vf => new { vf.VehicleId, vf.FeatureId });
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

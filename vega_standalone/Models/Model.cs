@@ -12,7 +12,7 @@ namespace vega_standalone.Models {
         [Required, StringLength(255)]
         public string Name { get; set; }
 
-        // navigation Property
+        // navigation Property, causes circular reference issue (Fixed by making use of a ModelResource)
         public Make Make { get; set; }
 
         // Foreign Key Property - simplify for creating and updting objects in the future.
